@@ -4,6 +4,10 @@
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" EasyTag - must be configured before the import
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:easytags_include_members = 1
 
 """"""""""""""""""""""""""""""
 " => Load pathogen paths
@@ -43,14 +47,12 @@ endif
 " => CTRL-P
 """"""""""""""""""""""""""""""
 let g:ctrlp_working_path_mode = 0
-
-let g:ctrlp_map = '<c-f>'
-map <leader>j :CtrlP<cr>
-map <c-b> :CtrlPBuffer<cr>
-
 let g:ctrlp_max_height = 20
-let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git\|^\.coffee'
+let g:ctrlp_custom_ignore = '^\.git'
+let g:ctrlp_extensions = ['tag']
 
+map <c-b> :CtrlPBuffer<cr>
+map <c-t> :CtrlPTag<cr>
 
 """"""""""""""""""""""""""""""
 " => ZenCoding
@@ -113,3 +115,13 @@ nnoremap <silent> <leader>z :Goyo<cr>
 " => Syntastic (syntax checker)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:syntastic_python_checkers=['pyflakes']
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" EasyTag
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:easytags_async = 1
+let g:easytags_dynamic_files = 1
+let g:easytags_autorecurse = 1
+let g:easytags_opts = ['--exclude=*/.*']
+let g:easytags_auto_highlight = 0
+map <leader>tl :TlistToggle<CR>

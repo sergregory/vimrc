@@ -19,36 +19,57 @@ au FileType python map <buffer> <leader>C ?class
 au FileType python map <buffer> <leader>D ?def 
 
 
-""""""""""""""""""""""""""""""
-" => JavaScript section
+" """"""""""""""""""""""""""""""
+" " => JavaScript section
+" """""""""""""""""""""""""""""""
+" au FileType javascript call JavaScriptFold()
+" au FileType javascript setl fen
+" au FileType javascript setl nocindent
+
+" au FileType javascript imap <c-t> AJS.log();<esc>hi
+" au FileType javascript imap <c-a> alert();<esc>hi
+
+" au FileType javascript inoremap <buffer> $r return 
+" au FileType javascript inoremap <buffer> $f //--- PH ----------------------------------------------<esc>FP2xi
+
+" function! JavaScriptFold() 
+"     setl foldmethod=syntax
+"     setl foldlevelstart=1
+"     syn region foldBraces start=/{/ end=/}/ transparent fold keepend extend
+
+"     function! FoldText()
+"         return substitute(getline(v:foldstart), '{.*', '{...}', '')
+"     endfunction
+"     setl foldtext=FoldText()
+" endfunction
+
+
+" """"""""""""""""""""""""""""""
+" " => CoffeeScript section
+" """""""""""""""""""""""""""""""
+" function! CoffeeScriptFold()
+"     setl foldmethod=indent
+"     setl foldlevelstart=1
+" endfunction
+" au FileType coffee call CoffeeScriptFold()
+
 """""""""""""""""""""""""""""""
-au FileType javascript call JavaScriptFold()
-au FileType javascript setl fen
-au FileType javascript setl nocindent
-
-au FileType javascript imap <c-t> AJS.log();<esc>hi
-au FileType javascript imap <c-a> alert();<esc>hi
-
-au FileType javascript inoremap <buffer> $r return 
-au FileType javascript inoremap <buffer> $f //--- PH ----------------------------------------------<esc>FP2xi
-
-function! JavaScriptFold() 
-    setl foldmethod=syntax
-    setl foldlevelstart=1
-    syn region foldBraces start=/{/ end=/}/ transparent fold keepend extend
-
-    function! FoldText()
-        return substitute(getline(v:foldstart), '{.*', '{...}', '')
-    endfunction
-    setl foldtext=FoldText()
-endfunction
-
-
-""""""""""""""""""""""""""""""
-" => CoffeeScript section
+" => Matlab/Octave section
 """""""""""""""""""""""""""""""
-function! CoffeeScriptFold()
-    setl foldmethod=indent
-    setl foldlevelstart=1
-endfunction
-au FileType coffee call CoffeeScriptFold()
+au BufNewFile,BufRead *.m setl cms=\%\ %s
+
+"""""""""""""""""""""""""""""""
+" => C/C++ section
+"""""""""""""""""""""""""""""""
+" C++11 syntax
+let c_no_curly_error = 1
+
+" Use clang
+let g:syntastic_cpp_compiler = "clang++"
+let g:syntastic_cpp_check_header = 1
+
+"""""""""""""""""""""""""""""""
+" => Bash section
+"""""""""""""""""""""""""""""""
+au BufNewFile,BufRead .sh setl tw=0
+

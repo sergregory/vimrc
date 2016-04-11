@@ -1,0 +1,18 @@
+[submodule "sources_non_forked/linediff"]
+	path = sources_non_forked/linediff
+	url = git://github.com/AndrewRadev/linediff.vim.git
+[submodule "sources_non_forked/vim-pandoc"]
+	path = sources_non_forked/vim-pandoc
+	url = https://github.com/vim-pandoc/vim-pandoc.git
+[submodule "sources_non_forked/vim-pandoc-syntax"]
+	path = sources_non_forked/vim-pandoc-syntax
+	url = https://github.com/vim-pandoc/vim-pandoc-syntax.git
+[submodule "sources_non_forked/vim-autoformat"]
+	path = sources_non_forked/vim-autoformat
+	url = https://github.com/Chiel92/vim-autoformat.git
+[submodule "sources_non_forked/vim-easytags"]
+	path = sources_non_forked/vim-easytags
+	url = https://github.com/xolox/vim-easytags.git
+[submodule "sources_non_forked/vim-misc"]
+	path = sources_non_forked/vim-misc
+	url = https://github.com/xolox/vim-misc.git
