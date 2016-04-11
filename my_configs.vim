@@ -1,9 +1,6 @@
 filetype plugin indent on
 syntax on
 
-" NERDTree
-noremap <C-n> :NERDTreeToggle<CR>
-
 " highlight trailing spaces
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
@@ -83,7 +80,8 @@ let g:pymode_folding = 0
 let g:syntastic_mode_map = { 'mode': 'passive',
                              \ 'active_filetypes': ['ruby', 'php'],
                              \ 'passive_filetypes': ['puppet'] }
-
+" Use <leader>l to toggle display of whitespace
+nmap <leader>l :set list!<CR>
 " For EasyTags - put tags into the local file for each directory
 set tags=['./**/tags', '~/.vimtags'];
 let g:easytags_dynamic_files = 1
@@ -100,3 +98,6 @@ let g:autoformat_autoindent = 0
 
 " Include mathit extension
 runtime macros/matchit.vim
+
+"remap Jedi omlicompletion to Ctrl+P
+let g:jedi#completions_command = "<C-P>"

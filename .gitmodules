@@ -1,3 +1,9 @@
+[submodule "sources_non_forked/jedi-vim"]
+	path = sources_non_forked/jedi-vim
+	url = https://github.com/davidhalter/jedi-vim.git
+[submodule "sources_non_forked/python-mode"]
+	path = sources_non_forked/python-mode
+	url = https://github.com/klen/python-mode.git
 [submodule "sources_non_forked/linediff"]
 	path = sources_non_forked/linediff
 	url = git://github.com/AndrewRadev/linediff.vim.git
