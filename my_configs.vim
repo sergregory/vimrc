@@ -101,3 +101,6 @@ runtime macros/matchit.vim
 
 "remap Jedi omlicompletion to Ctrl+P
 let g:jedi#completions_command = "<C-P>"
+
+" Vebugger
+let g:vebugger_leader='<Tab>'

@@ -22,3 +22,21 @@
 [submodule "sources_non_forked/vim-misc"]
 	path = sources_non_forked/vim-misc
 	url = https://github.com/xolox/vim-misc.git
+[submodule "sources_non_forked/YouCompleteMe"]
+	path = sources_non_forked/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule "sources_non_forked/ag.vim"]
+	path = sources_non_forked/ag.vim
+	url = https://github.com/rking/ag.vim.git
+[submodule "sources_non_forked/clang-format"]
+	path = sources_non_forked/clang-format
+	url = https://github.com/rhysd/vim-clang-format.git
+[submodule "sources_non_forked/vimproc.vim"]
+	path = sources_non_forked/vimproc.vim
+	url = https://github.com/Shougo/vimproc.vim.git
+[submodule "sources_non_forked/vim-vebugger"]
+	path = sources_non_forked/vim-vebugger
+	url = https://github.com/idanarye/vim-vebugger.git
+[submodule "sources_non_forked/vim-unimpaired"]
+	path = sources_non_forked/vim-unimpaired
+	url = https://github.com/tpope/vim-unimpaired.git

@@ -86,7 +86,7 @@ map <leader>nf :NERDTreeFind<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vim-multiple-cursors
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:multi_cursor_next_key="\<C-s>"
+let g:multi_cursor_next_key="<leade><C-s>"
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -125,3 +125,8 @@ let g:easytags_autorecurse = 1
 let g:easytags_opts = ['--exclude=*/.*']
 let g:easytags_auto_highlight = 0
 map <leader>tl :TlistToggle<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vebugger
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:vebugger_leader = "<Tab>"
