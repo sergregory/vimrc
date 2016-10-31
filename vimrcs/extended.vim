@@ -33,8 +33,9 @@ set guioptions-=L
 
 " Colorscheme
 if has("gui_running")
-    set background=dark
+    set background=light
     colorscheme peaksea
+    let g:colors_name="peaksea"
 else
     colorscheme desert
     let g:colors_name="desert"

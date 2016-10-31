@@ -40,3 +40,6 @@
 [submodule "sources_non_forked/vim-unimpaired"]
 	path = sources_non_forked/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
+[submodule "sources_non_forked/vim-cmake-syntax"]
+	path = sources_non_forked/vim-cmake-syntax
+	url = https://github.com/pboettch/vim-cmake-syntax.git

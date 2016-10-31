@@ -14,11 +14,11 @@ set colorcolumn=+1
 set number
 highlight ColorColumn ctermbg=lightgray guibg=lightgray
 let g:clang_use_library = 1
-let g:clang_library_path=/usr/lib/libclang.so
+let g:clang_library_path ="/usr/lib/libclang.so"
 " Complete options (disable preview scratch window)
-set completeopt = menu,menuone,longest,preview
+set completeopt = "menu,menuone,longest,preview"
 " Limit popup menu height
-set pumheight = 30
+set pumheight=30
 " automatically change window's cwd to file's dir
 set autochdir
 " Show clang errors in the quickfix window
@@ -80,27 +80,20 @@ let g:pymode_folding = 0
 let g:syntastic_mode_map = { 'mode': 'passive',
                              \ 'active_filetypes': ['ruby', 'php'],
                              \ 'passive_filetypes': ['puppet'] }
-" Use <leader>l to toggle display of whitespace
-nmap <leader>l :set list!<CR>
 " For EasyTags - put tags into the local file for each directory
-set tags=['./**/tags', '~/.vimtags'];
+set tags=["./**/tags", "~/.tags"];
 let g:easytags_dynamic_files = 1
 let Tlist_Use_Right_Window   = 1
 colorscheme peaksea
 set  t_Co=256
 set background=light
-map <F10> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 
 " Clang autoformatting
-let g:formatdef_clangformat=clang-format-3.6
-noremap <C-l> :Autoformat<CR>
+let g:formatdef_clangformat="/usr/bin/clang-format"
 let g:autoformat_autoindent = 0
 
 " Include mathit extension
 runtime macros/matchit.vim
-
-"remap Jedi omlicompletion to Ctrl+P
-let g:jedi#completions_command = "<C-P>"
 
 " Vebugger
 let g:vebugger_leader='<Tab>'

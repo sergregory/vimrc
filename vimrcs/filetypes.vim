@@ -18,6 +18,13 @@ au FileType python map <buffer> <leader>2 /def
 au FileType python map <buffer> <leader>C ?class 
 au FileType python map <buffer> <leader>D ?def 
 
+function! PythonRunCtags()
+    silent !clear
+    execute "!ctags -R --fields=+l --extra=+f --languages=python --python-kinds=-iv -f \"$(dirname '" . bufname("%") . "')/tags\" \"$(dirname '" . bufname("%") . "')\"  $(python -c \"import os, sys; print(' '.join('{}'.format(d) for d in sys.path if os.path.isdir(d)))\")"
+endfunction
+
+au FileType python map <buffer> <C-F12> :call PythonRunCtags()<cr>
+
 
 " """"""""""""""""""""""""""""""
 " " => JavaScript section
@@ -67,6 +74,9 @@ let c_no_curly_error = 1
 " Use clang
 let g:syntastic_cpp_compiler = "clang++"
 let g:syntastic_cpp_check_header = 1
+
+au FileType cpp map <C-F12> <Esc>:!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --langmap="c++:+.cuh.cu" . /home/gserebry/dev/opencv/ <CR><CR>
+au FileType cpp map <Leader><C-F12> <Esc>:!ctags -a -R --c++-kinds=+p --fields=+iaS --extra=+q --langmap="c++:+.cuh.cu" . /home/gserebry/dev/opencv/ 
 
 """""""""""""""""""""""""""""""
 " => Bash section

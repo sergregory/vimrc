@@ -143,11 +143,11 @@ set foldcolumn=1
 syntax enable 
 
 try
-    colorscheme desert
+    colorscheme peakse
 catch
 endtry
 
-set background=dark
+set background=light
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -362,6 +362,15 @@ map <leader>x :e ~/buffer.md<cr>
 
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
+
+" Toggle background mode
+map <C-F11> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
+"
+" Use <leader>l to toggle display of whitespace
+nmap <leader>l :set list!<CR>
+
+" Autoformatting
+noremap <C-l> :Autoformat<CR>
 
 
 
