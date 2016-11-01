@@ -364,7 +364,7 @@ map <leader>x :e ~/buffer.md<cr>
 map <leader>pp :setlocal paste!<cr>
 
 " Toggle background mode
-map <C-F11> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
+map <F10> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 "
 " Use <leader>l to toggle display of whitespace
 nmap <leader>l :set list!<CR>

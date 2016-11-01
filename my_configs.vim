@@ -97,3 +97,7 @@ runtime macros/matchit.vim
 
 " Vebugger
 let g:vebugger_leader='<Tab>'
+
+
+" YCM
+let g:ycm_server_python_interpreter='/usr/bin/python2.7'
