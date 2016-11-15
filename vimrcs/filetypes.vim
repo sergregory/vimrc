@@ -20,7 +20,7 @@ au FileType python map <buffer> <leader>D ?def
 
 function! PythonRunCtags()
     silent !clear
-    execute "!ctags -R --fields=+l --extra=+f --languages=python --python-kinds=-iv -f \"$(dirname '" . bufname("%") . "')/tags\" \"$(dirname '" . bufname("%") . "')\"  $(python -c \"import os, sys; print(' '.join('{}'.format(d) for d in sys.path if os.path.isdir(d)))\")"
+    execute "!ctags -R --fields=+l --extra=+f --languages=python --python-kinds=-iv -f \"" . expand("%:p:h") . "/tags\" \"" . expand("%:p:h") . "\"  $(python -c \"import os, sys; print(' '.join('{}'.format(d) for d in sys.path if os.path.isdir(d)))\")"
 endfunction
 
 au FileType python map <buffer> <C-F12> :call PythonRunCtags()<cr>

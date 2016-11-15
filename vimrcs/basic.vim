@@ -364,7 +364,17 @@ map <leader>x :e ~/buffer.md<cr>
 map <leader>pp :setlocal paste!<cr>
 
 " Toggle background mode
-map <F10> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
+function! ChangeBackground()
+    if &background == "dark"
+        let &background = "light"
+        let &guifont = "Source\ Code\ Pro\ Light\ 11"
+    elseif &background == "light"
+        let &background = "dark"
+        let &guifont = "Source\ Code\ Pro\ 11"
+    endif
+endfunction
+" map <F10> :let &background = ( &background == "dark"? "light" : "dark" )|let &guifont = ( &background == "dark"? "Source\ Code\ Pro\ 11" : "Source\ Code\ Pro\ Light\ 11" )<CR>
+map <F10> :call ChangeBackground()<CR>
 "
 " Use <leader>l to toggle display of whitespace
 nmap <leader>l :set list!<CR>

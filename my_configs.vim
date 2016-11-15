@@ -13,8 +13,8 @@ set guifont=Source\ Code\ Pro\ Light\ 11
 set colorcolumn=+1
 set number
 highlight ColorColumn ctermbg=lightgray guibg=lightgray
-let g:clang_use_library = 1
-let g:clang_library_path ="/usr/lib/libclang.so"
+au FileType cpp let g:clang_use_library = 1
+au FileType cpp let g:clang_library_path ="/usr/lib/libclang.so"
 " Complete options (disable preview scratch window)
 set completeopt = "menu,menuone,longest,preview"
 " Limit popup menu height
@@ -22,7 +22,9 @@ set pumheight=30
 " automatically change window's cwd to file's dir
 set autochdir
 " Show clang errors in the quickfix window
-let g:clang_complete_copen = 1
+au FileType cpp let g:clang_complete_copen = 1
+
+
 let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabMappingForward = '<c-p>'
 let g:SuperTabMappingBackward = '<s-c-p>'
@@ -81,7 +83,7 @@ let g:syntastic_mode_map = { 'mode': 'passive',
                              \ 'active_filetypes': ['ruby', 'php'],
                              \ 'passive_filetypes': ['puppet'] }
 " For EasyTags - put tags into the local file for each directory
-set tags=["./**/tags", "~/.tags"];
+set tags=tags,./**/tags,~/.tags
 let g:easytags_dynamic_files = 1
 let Tlist_Use_Right_Window   = 1
 colorscheme peaksea
@@ -92,6 +94,10 @@ set background=light
 let g:formatdef_clangformat="/usr/bin/clang-format"
 let g:autoformat_autoindent = 0
 
+" C++ syntastic support
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler_options = ' -std=c++14 -stdlib=libc++'
+
 " Include mathit extension
 runtime macros/matchit.vim
 
@@ -101,3 +107,13 @@ let g:vebugger_leader='<Tab>'
 
 " YCM
 let g:ycm_server_python_interpreter='/usr/bin/python2.7'
+
+" EasyMotion
+map \ <Leader><Leader>s
+
+" Comment symbol for gnuplot files
+au FileType gnuplot setl cms=\#\ %s
+"
+" Comment symbol for CMake files
+au BufNewFile,BufRead CMakeLists.txt setl cms=\#\ %s
+au BufNewFile,BufRead *.cmake setl cms=\#\ %s
