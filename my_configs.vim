@@ -9,16 +9,16 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
-set guifont=Source\ Code\ Pro\ Light\ 11
+set guifont=Consolas:h11
 set colorcolumn=+1
 set number
 highlight ColorColumn ctermbg=lightgray guibg=lightgray
-let g:clang_use_library = 1
-let g:clang_library_path=/usr/lib/libclang.so
+" let g:clang_use_library=1
+" let g:clang_library_path=/usr/lib/libclang.so
 " Complete options (disable preview scratch window)
-set completeopt = menu,menuone,longest,preview
+set completeopt=menu,menuone,longest,preview
 " Limit popup menu height
-set pumheight = 30
+set pumheight=30
 " automatically change window's cwd to file's dir
 set autochdir
 " Show clang errors in the quickfix window
@@ -83,16 +83,16 @@ let g:syntastic_mode_map = { 'mode': 'passive',
 " Use <leader>l to toggle display of whitespace
 nmap <leader>l :set list!<CR>
 " For EasyTags - put tags into the local file for each directory
-set tags=['./**/tags', '~/.vimtags'];
+set tags='./tags','./**/tags','~/.vimtags'
 let g:easytags_dynamic_files = 1
 let Tlist_Use_Right_Window   = 1
-colorscheme peaksea
+colorscheme martin_krischik
 set  t_Co=256
 set background=light
-map <F10> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
+map <C-F10> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 
 " Clang autoformatting
-let g:formatdef_clangformat=clang-format-3.6
+let g:formatdef_clangformat="C:\Program Files (x86)\LLVM\bin\clang-format.exe"
 noremap <C-l> :Autoformat<CR>
 let g:autoformat_autoindent = 0
 

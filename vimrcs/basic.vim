@@ -89,7 +89,7 @@ endif
 set ruler
 
 " Height of the command bar
-set cmdheight=2
+set cmdheight=1
 
 " A buffer becomes hidden when it is abandoned
 set hid
@@ -188,7 +188,7 @@ set tabstop=4
 
 " Linebreak on 500 characters
 set lbr
-set tw=500
+set tw=120
 
 set ai "Auto indent
 set si "Smart indent
@@ -239,7 +239,7 @@ map <leader>t<leader> :tabnext
 
 " Let 'tl' toggle between this and the last accessed tab
 let g:lasttab = 1
-nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
+nmap <leader>tp :exe "tabn ".g:lasttab<CR>
 au TabLeave * let g:lasttab = tabpagenr()
 
 
