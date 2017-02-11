@@ -358,7 +358,7 @@ noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 map <leader>q :e ~/buffer<cr>
 
 " Quickly open a markdown buffer for scribble
-map <leader>x :e ~/buffer.md<cr>
+map <leader>x :tabnew ~/Documents/notes.md<cr>
 
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
@@ -367,13 +367,12 @@ map <leader>pp :setlocal paste!<cr>
 function! ChangeBackground()
     if &background == "dark"
         let &background = "light"
-        let &guifont = "Source\ Code\ Pro\ Light\ 11"
+        let &guifont = "Source\ Code\ Pro\ 11"
     elseif &background == "light"
         let &background = "dark"
         let &guifont = "Source\ Code\ Pro\ 11"
     endif
 endfunction
-" map <F10> :let &background = ( &background == "dark"? "light" : "dark" )|let &guifont = ( &background == "dark"? "Source\ Code\ Pro\ 11" : "Source\ Code\ Pro\ Light\ 11" )<CR>
 map <F10> :call ChangeBackground()<CR>
 "
 " Use <leader>l to toggle display of whitespace

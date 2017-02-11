@@ -9,7 +9,7 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
-set guifont=Source\ Code\ Pro\ Light\ 11
+set guifont=Source\ Code\ Pro\ 11
 set colorcolumn=+1
 set number
 highlight ColorColumn ctermbg=lightgray guibg=lightgray
@@ -52,13 +52,20 @@ let g:pymode_doc = 1
 let g:pymode_doc_key = 'K'
 
 "Linting
-let g:pymode_lint = 1
-let g:pymode_lint_checker = "pyflakes,pep8"
-let g:pymode_lint_options_pylint = {'max-line-length': 120}
-let g:pymode_lint_options_pep8 = {'max_line_length': 120}
-"let g:pymode_lint_ignore = "E501"
-" Auto check on save
-let g:pymode_lint_write = 1
+let g:syntastic_python_checkers = ["flake8", "pylint"]
+let g:syntastic_python_flake8_post_args="--max-line-length=120, --ignore=E999"
+let g:syntastic_python_python_exec = '/usr/bin/python3'
+let g:syntastic_python_pylint_exec="/usr/bin/pylint3"
+au FileType python setl tw=120
+
+" let g:pymode_lint = 1
+" let g:pymode_lint_unmodified = 1
+" let g:pymode_lint_checker = "pyflakes,pep8"
+" let g:pymode_lint_options_pylint = {'max-line-length': 120}
+" let g:pymode_lint_options_pep8 = {'max_line_length': 120}
+" let g:pymode_lint_ignore = "E501"
+" " Auto check on save
+" let g:pymode_lint_write = 1
 
 " Support virtualenv
 let g:pymode_virtualenv = 1
@@ -73,17 +80,15 @@ let g:pymode_syntax_all = 1
 let g:pymode_syntax_indent_errors = g:pymode_syntax_all
 let g:pymode_syntax_space_errors = g:pymode_syntax_all
 let g:pymode_options_colorcolumn=120
+au FileType python setl tw=120
 "remap Jedi omlicompletion to Ctrl+P
 let g:jedi#completions_command = "<C-P>"
 
 
 " Don't autofold code
 let g:pymode_folding = 0
-let g:syntastic_mode_map = { 'mode': 'passive',
-                             \ 'active_filetypes': ['ruby', 'php'],
-                             \ 'passive_filetypes': ['puppet'] }
 " For EasyTags - put tags into the local file for each directory
-set tags=tags,./**/tags,~/.tags
+set tags=.tags,./**/tags,~/.tags
 let g:easytags_dynamic_files = 1
 let Tlist_Use_Right_Window   = 1
 colorscheme peaksea
@@ -100,7 +105,7 @@ let g:syntastic_cpp_compiler_options = ' -std=c++14 -stdlib=libc++'
 
 " Include mathit extension
 runtime macros/matchit.vim
-
+"
 " Vebugger
 let g:vebugger_leader='<Tab>'
 
@@ -109,7 +114,7 @@ let g:vebugger_leader='<Tab>'
 let g:ycm_server_python_interpreter='/usr/bin/python2.7'
 
 " EasyMotion
-map \ <Leader><Leader>s
+map \ <leader><leader>s
 
 " Comment symbol for gnuplot files
 au FileType gnuplot setl cms=\#\ %s
@@ -117,3 +122,13 @@ au FileType gnuplot setl cms=\#\ %s
 " Comment symbol for CMake files
 au BufNewFile,BufRead CMakeLists.txt setl cms=\#\ %s
 au BufNewFile,BufRead *.cmake setl cms=\#\ %s
+
+nnoremap <leader>h :nohl<cr>
+
+" Zeal
+function! FindZealDoc()
+    let l:file_type = &filetype
+    let l:text = "<cword>"
+    execute "!zeal '" . l:file_type."':'".l:text."'"
+endfunction
+nnoremap <leader><leader>g :call FindZealDoc()<CR><CR>
