@@ -23,7 +23,7 @@ function! PythonRunCtags()
     execute "!ctags -R --fields=+l --extra=+f --languages=python --python-kinds=-iv -f \"" . expand("%:p:h") . "/tags\" \"" . expand("%:p:h") . "\"  $(python -c \"import os, sys; print(' '.join('{}'.format(d) for d in sys.path if os.path.isdir(d)))\")"
 endfunction
 
-au FileType python map <buffer> <C-F12> :call PythonRunCtags()<cr>
+au FileType python map <C-F12> <ESC>:call PythonRunCtags()<cr>
 
 
 " """"""""""""""""""""""""""""""

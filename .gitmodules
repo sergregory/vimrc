@@ -46,3 +46,18 @@
 [submodule "sources_non_forked/vim-easymotion"]
 	path = sources_non_forked/vim-easymotion
 	url = https://github.com/easymotion/vim-easymotion.git
+[submodule "sources_non_forked/calendar.vim"]
+	path = sources_non_forked/calendar.vim
+	url = https://github.com/itchyny/calendar.vim.git
+[submodule "sources_non_forked/vim-session"]
+	path = sources_non_forked/vim-session
+	url = https://github.com/xolox/vim-session.git
+[submodule "sources_non_forked/vim-tmux-focus-events"]
+	path = sources_non_forked/vim-tmux-focus-events
+	url = https://github.com/tmux-plugins/vim-tmux-focus-events.git
+[submodule "sources_non_forked/fonts"]
+	path = sources_non_forked/fonts
+	url = https://github.com/powerline/fonts.git
+[submodule "sources_non_forked/seoul256.vim"]
+	path = sources_non_forked/seoul256.vim
+	url = https://github.com/junegunn/seoul256.vim.git

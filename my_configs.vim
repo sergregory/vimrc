@@ -9,7 +9,7 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
-set guifont=Source\ Code\ Pro\ 11
+set guifont=Source\ Code\ Pro\ for\ Powerline\ Light\ 11
 set colorcolumn=+1
 set number
 highlight ColorColumn ctermbg=lightgray guibg=lightgray
@@ -53,22 +53,23 @@ let g:pymode_doc_key = 'K'
 
 "Linting
 let g:syntastic_python_checkers = ["flake8", "pylint"]
-let g:syntastic_python_flake8_post_args="--max-line-length=120, --ignore=E999"
-let g:syntastic_python_python_exec = '/usr/bin/python3'
-let g:syntastic_python_pylint_exec="/usr/bin/pylint3"
+let g:syntastic_python_flake8_post_args="--max-line-length=120, --ignore=E999,E111"
+let g:syntastic_python_python_exec = 'python'
 au FileType python setl tw=120
 
-" let g:pymode_lint = 1
-" let g:pymode_lint_unmodified = 1
-" let g:pymode_lint_checker = "pyflakes,pep8"
-" let g:pymode_lint_options_pylint = {'max-line-length': 120}
-" let g:pymode_lint_options_pep8 = {'max_line_length': 120}
-" let g:pymode_lint_ignore = "E501"
-" " Auto check on save
-" let g:pymode_lint_write = 1
+
+let g:pymode_lint = 0
+let g:pymode_lint_unmodified = 1
+let g:pymode_lint_checker = "pyflakes,pep8"
+let g:pymode_lint_options_pylint = {'max-line-length': 120}
+let g:pymode_lint_options_pep8 = {'max_line_length': 120}
+let g:pymode_lint_ignore = "E501"
+" Auto check on save
+let g:pymode_lint_write = 1
 
 " Support virtualenv
 let g:pymode_virtualenv = 1
+let g:pymode_virtualenv_path = '/home/gserebry/dev/python3-env'
 
 " Enable breakpoints plugin
 let g:pymode_breakpoint = 1
@@ -81,8 +82,10 @@ let g:pymode_syntax_indent_errors = g:pymode_syntax_all
 let g:pymode_syntax_space_errors = g:pymode_syntax_all
 let g:pymode_options_colorcolumn=120
 au FileType python setl tw=120
-"remap Jedi omlicompletion to Ctrl+P
-let g:jedi#completions_command = "<C-P>"
+" "remap Jedi omlicompletion to Ctrl+P
+" let g:jedi#completions_command = "<C-P>"
+" let g:jedi#popup_select_first = 0
+let g:jedi#completions_enabled = 0
 
 
 " Don't autofold code
@@ -132,3 +135,6 @@ function! FindZealDoc()
     execute "!zeal '" . l:file_type."':'".l:text."'"
 endfunction
 nnoremap <leader><leader>g :call FindZealDoc()<CR><CR>
+
+" Vim will then use the background of your shell.
+let g:solarized_termtrans = 1
