@@ -83,3 +83,9 @@ au FileType cpp map <Leader><C-F12> <Esc>:!ctags -a -R --c++-kinds=+p --fields=+
 """""""""""""""""""""""""""""""
 au BufNewFile,BufRead .sh setl tw=0
 
+"""""""""""""""""""""""""""""""
+" => Prototxt section
+"""""""""""""""""""""""""""""""
+au FileType proto setl shiftwidth=4
+au FileType proto setl tabstop=4
+
