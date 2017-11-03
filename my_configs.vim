@@ -88,6 +88,15 @@ au FileType python setl tw=120
 let g:jedi#completions_enabled = 0
 
 
+let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
+let g:ycm_seed_identifiers_with_syntax = 1 " Completion for programming language's keyword
+let g:ycm_complete_in_comments = 1 " Completion in comments
+let g:ycm_complete_in_strings = 1 " Completion in string
+
+" Goto definition with F3
+map <F3> :YcmCompleter GoTo<CR>
+
+
 " Don't autofold code
 let g:pymode_folding = 0
 " For EasyTags - put tags into the local file for each directory

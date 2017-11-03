@@ -61,3 +61,6 @@
 [submodule "sources_non_forked/seoul256.vim"]
 	path = sources_non_forked/seoul256.vim
 	url = https://github.com/junegunn/seoul256.vim.git
+[submodule "sources_non_forked/vim-polyglot"]
+	path = sources_non_forked/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot
