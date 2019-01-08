@@ -9,7 +9,7 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
-set guifont=Source\ Code\ Pro\ for\ Powerline\ Light\ 11
+set guifont=Source\ Code\ Pro\ for\ Powerline\ Light\ 10
 set colorcolumn=+1
 set number
 highlight ColorColumn ctermbg=lightgray guibg=lightgray
@@ -103,7 +103,7 @@ let g:pymode_folding = 0
 set tags=.tags,./**/tags,~/.tags
 let g:easytags_dynamic_files = 1
 let Tlist_Use_Right_Window   = 1
-colorscheme peaksea
+colorscheme PaperColor
 set  t_Co=256
 set background=light
 
