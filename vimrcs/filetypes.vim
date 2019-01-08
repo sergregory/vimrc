@@ -12,11 +12,14 @@ au FileType python map <buffer> F :set foldmethod=indent<cr>
 au FileType python inoremap <buffer> $r return 
 au FileType python inoremap <buffer> $i import 
 au FileType python inoremap <buffer> $p print 
-au FileType python inoremap <buffer> $f #--- PH ----------------------------------------------<esc>FP2xi
+au FileType python inoremap <buffer> $f # --- <esc>a
 au FileType python map <buffer> <leader>1 /class 
 au FileType python map <buffer> <leader>2 /def 
 au FileType python map <buffer> <leader>C ?class 
 au FileType python map <buffer> <leader>D ?def 
+au FileType python set cindent
+au FileType python set cinkeys-=0#
+au FileType python set indentkeys-=0#
 
 function! PythonRunCtags()
     silent !clear
@@ -25,67 +28,56 @@ endfunction
 
 au FileType python map <C-F12> <ESC>:call PythonRunCtags()<cr>
 
-
-" """"""""""""""""""""""""""""""
-" " => JavaScript section
-" """""""""""""""""""""""""""""""
-" au FileType javascript call JavaScriptFold()
-" au FileType javascript setl fen
-" au FileType javascript setl nocindent
-
-" au FileType javascript imap <c-t> AJS.log();<esc>hi
-" au FileType javascript imap <c-a> alert();<esc>hi
-
-" au FileType javascript inoremap <buffer> $r return 
-" au FileType javascript inoremap <buffer> $f //--- PH ----------------------------------------------<esc>FP2xi
-
-" function! JavaScriptFold() 
-"     setl foldmethod=syntax
-"     setl foldlevelstart=1
-"     syn region foldBraces start=/{/ end=/}/ transparent fold keepend extend
-
-"     function! FoldText()
-"         return substitute(getline(v:foldstart), '{.*', '{...}', '')
-"     endfunction
-"     setl foldtext=FoldText()
-" endfunction
-
-
-" """"""""""""""""""""""""""""""
-" " => CoffeeScript section
-" """""""""""""""""""""""""""""""
-" function! CoffeeScriptFold()
-"     setl foldmethod=indent
-"     setl foldlevelstart=1
-" endfunction
-" au FileType coffee call CoffeeScriptFold()
-
+""""""""""""""""""""""""""""""
+" => JavaScript section
 """""""""""""""""""""""""""""""
-" => Matlab/Octave section
-"""""""""""""""""""""""""""""""
-au BufNewFile,BufRead *.m setl cms=\%\ %s
+au FileType javascript call JavaScriptFold()
+au FileType javascript setl fen
+au FileType javascript setl nocindent
 
-"""""""""""""""""""""""""""""""
-" => C/C++ section
-"""""""""""""""""""""""""""""""
-" C++11 syntax
-let c_no_curly_error = 1
+au FileType javascript imap <c-t> $log();<esc>hi
+au FileType javascript imap <c-a> alert();<esc>hi
 
-" Use clang
-let g:syntastic_cpp_compiler = "clang++"
-let g:syntastic_cpp_check_header = 1
+au FileType javascript inoremap <buffer> $r return 
+au FileType javascript inoremap <buffer> $f //--- PH ----------------------------------------------<esc>FP2xi
 
-au FileType cpp map <C-F12> <Esc>:!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --langmap="c++:+.cuh.cu" . /home/gserebry/dev/opencv/ <CR><CR>
-au FileType cpp map <Leader><C-F12> <Esc>:!ctags -a -R --c++-kinds=+p --fields=+iaS --extra=+q --langmap="c++:+.cuh.cu" . /home/gserebry/dev/opencv/ 
+function! JavaScriptFold() 
+    setl foldmethod=syntax
+    setl foldlevelstart=1
+    syn region foldBraces start=/{/ end=/}/ transparent fold keepend extend
 
-"""""""""""""""""""""""""""""""
-" => Bash section
-"""""""""""""""""""""""""""""""
-au BufNewFile,BufRead .sh setl tw=0
+    function! FoldText()
+        return substitute(getline(v:foldstart), '{.*', '{...}', '')
+    endfunction
+    setl foldtext=FoldText()
+endfunction
 
-"""""""""""""""""""""""""""""""
-" => Prototxt section
-"""""""""""""""""""""""""""""""
-au FileType proto setl shiftwidth=4
-au FileType proto setl tabstop=4
 
+""""""""""""""""""""""""""""""
+" => CoffeeScript section
+"""""""""""""""""""""""""""""""
+function! CoffeeScriptFold()
+    setl foldmethod=indent
+    setl foldlevelstart=1
+endfunction
+au FileType coffee call CoffeeScriptFold()
+
+au FileType gitcommit call setpos('.', [0, 1, 1, 0])
+
+
+""""""""""""""""""""""""""""""
+" => Shell section
+""""""""""""""""""""""""""""""
+if exists('$TMUX') 
+    if has('nvim')
+        set termguicolors
+    else
+        set term=screen-256color 
+    endif
+endif
+
+
+""""""""""""""""""""""""""""""
+" => Twig section
+""""""""""""""""""""""""""""""
+autocmd BufRead *.twig set syntax=html filetype=html
