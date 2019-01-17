@@ -69,7 +69,7 @@ let g:pymode_lint_write = 1
 
 " Support virtualenv
 let g:pymode_virtualenv = 1
-let g:pymode_virtualenv_path = '/home/gserebry/dev/python3-env'
+let g:pymode_virtualenv_path = '/home/gserebry/virtualenvs/terravion'
 
 " Enable breakpoints plugin
 let g:pymode_breakpoint = 1
