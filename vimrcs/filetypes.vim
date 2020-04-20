@@ -75,3 +75,9 @@ endif
 " => Twig section
 """"""""""""""""""""""""""""""
 autocmd BufRead *.twig set syntax=html filetype=html
+
+
+""""""""""""""""""""""""""""""
+" => Orgmode section
+""""""""""""""""""""""""""""""
+autocmd BufRead *.org let maplocalleader = "/"

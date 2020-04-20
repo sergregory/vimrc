@@ -1,0 +1,9 @@
+[submodule "sources_non_forked/vim-orgmode"]
+	path = sources_non_forked/vim-orgmode
+	url = https://github.com/jceb/vim-orgmode/
+[submodule "sources_non_forked/vim-wakatime"]
+	path = sources_non_forked/vim-wakatime
+	url = git://github.com/wakatime/vim-wakatime.git
+[submodule "sources_non_forked/vim-fetch"]
+	path = sources_non_forked/vim-fetch
+	url = git@github.com:wsdjeg/vim-fetch.git
